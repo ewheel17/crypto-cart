@@ -3,10 +3,10 @@
   <ProgressBar :barStatus="1"/>
   <div class="container">
     <div class="box-selection">
-      <div class="bottom-seperator">
+      <div class="bar-settings">
         <h1>Box</h1>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Price Per Unit:</p>
         </div>
@@ -14,7 +14,7 @@
           <p>$3000.00</p>
         </div>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Desired Units:</p>
         </div>
@@ -22,7 +22,7 @@
           <p class="desired-units">2</p>
         </div>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Total:</p>
         </div>
@@ -32,10 +32,10 @@
       </div>
     </div>
     <div class="box-selection">
-      <div class="bottom-seperator">
+      <div class="bar-settings">
         <h1>Box Pro</h1>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Price Per Unit:</p>
         </div>
@@ -43,7 +43,7 @@
           <p>$3000.00</p>
         </div>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Desired Units:</p>
         </div>
@@ -51,7 +51,7 @@
           <p class="desired-units">0</p>
         </div>
       </div>
-      <div class="container2 bottom-seperator small-unit">
+      <div class="container2 bar-settings small-unit">
         <div>
           <p>Total:</p>
         </div>
@@ -63,7 +63,9 @@
   </div>
 
   <div id="footer">
-    <p class="button-next">Next</p>
+    <div>
+      <a class="button-next">Next</a>
+    </div>
   </div>
 </div>
 </template>
@@ -108,7 +110,7 @@ export default {
     display: flex;
     justify-content: center;
     padding-bottom: 5px;
-    height: 70%;
+    height: 60%;
   }
 
   .container2 {
@@ -127,7 +129,7 @@ export default {
     border-radius: 4px;
   }
 
-  .bottom-seperator {
+  .bar-settings {
     border-bottom: #bdbdbd solid;
     border-width: 1px;
     width: 100%;
@@ -154,33 +156,49 @@ export default {
       width: 400px;
       height: 500px;
     }
-  }
-
-  @media only screen and (max-width: 1300px) {
-    .box-selection {
-      width: 300px;
-      height: 400px;
-    }
     .small-unit {
       width: 80%;
-      height: 100px;
-      padding-top: 50px;
+      height: 70px;
+      padding-top: 70px;
     }
   }
 
-  @media only screen and (max-width: 650px) {
-    .box-selection {
-      
+  @media only screen and (max-width: 1100px) {
+    p, a, input {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 18px;
     }
   }
 
   @media only screen and (max-width: 580px) {
-
+    .box-selection {
+      width: 300px;
+      height: 375px;
+    }
+    .small-unit {
+      width: 80%;
+      height: 40px;
+      padding: 30px 0px;
+    }
   }
 
   @media only screen and (max-width: 380px) {
     .box-selection {
-      
+      width: 180px;
+      height: 250px;
+    }
+    .small-unit {
+      width: 80%;
+      height: 20px;
+      padding: 20px 0px;
+    }
+    p, a, input {
+      font-size: 10px;
+    }
+    h1 {
+      font-size: 16px;
     }
   }
 </style>

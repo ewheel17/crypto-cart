@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Selection/>
+    <CreateAccount/>
   </div>
 </template>
 
@@ -49,5 +49,9 @@ h1 {
 p {
   font-size: 18px;
   color: #4F4F4F;
+}
+
+a, input {
+  font-size: 18px;
 }
 </style>
