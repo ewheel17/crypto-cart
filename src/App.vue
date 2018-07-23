@@ -1,30 +1,42 @@
 <template>
   <div id="app">
-    <CreateAccount/>
+    <router-view></router-view>
+    <!-- <CreateAccount/> -->
+    <!-- <Login/> -->
+    <!-- <TandC/> -->
+    <!-- <Payment/> -->
+    <!-- <TransactionBTC/> -->
+    <!-- <TransactionUSD/> -->
+    <!-- <PostTransactionUSD/> -->
+    <!-- <junk/> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import ProgressBar from "./components/ProgressBar";
-import Selection from "./components/Selection";
-import CreateAccount from "./components/CreateAccount";
-import Login from "./components/Login";
-import TandC from "./components/TandC";
-import Payment from "./components/Payment";
-import PostTransaction from "./components/PostTransaction";
+import Selection from "./views/Selection";
+import CreateAccount from "./views/CreateAccount";
+import Login from "./views/Login";
+import TandC from "./views/TandC";
+import Payment from "./views/Payment";
+import PostTransactionUSD from "./views/PostTransactionUSD";
+import TransactionUSD from "./views/TransactionUSD";
+import TransactionBTC from "./views/TransactionBTC";
+import junk from "./components/junk";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
     ProgressBar,
     Selection,
     CreateAccount,
     Login,
     TandC,
     Payment,
-    PostTransaction
+    PostTransactionUSD,
+    TransactionUSD,
+    TransactionBTC,
+    junk
   }
 };
 </script>

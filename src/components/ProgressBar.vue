@@ -1,15 +1,30 @@
 <template>
 <div id="progressBar">
   <div class="container">
-    <div :class="[barStatus > 0 ? 'active' : 'inactive']" class="single-circle"></div>
+    <div :class="[barStatus > 0 ? 'active' : 'inactive']" class="single-circle">
+      <div v-if="barStatus === 1" class="small-circle"></div>
+      <i v-if="barStatus > 1" class="material-icons center-icon">check</i>
+    </div>
     <div :class="[barStatus > 1 ? 'active-bar' : 'inactive-bar']" class="single-bar"></div>
-    <div :class="[barStatus > 1 ? 'active' : 'inactive']" class="single-circle"></div>
+    <div :class="[barStatus > 1 ? 'active' : 'inactive']" class="single-circle">
+      <div v-if="barStatus === 2" class="small-circle"></div>
+      <i v-if="barStatus > 2" class="material-icons center-icon">check</i>
+    </div>
     <div :class="[barStatus > 2 ? 'active-bar' : 'inactive-bar']"  class="single-bar"></div>
-    <div :class="[barStatus > 2 ? 'active' : 'inactive']"  class="single-circle"></div>
+    <div :class="[barStatus > 2 ? 'active' : 'inactive']"  class="single-circle">
+      <div v-if="barStatus === 3" class="small-circle"></div>
+      <i v-if="barStatus > 3" class="material-icons center-icon">check</i>
+    </div>
     <div :class="[barStatus > 3 ? 'active-bar' : 'inactive-bar']"  class="single-bar"></div>
-    <div :class="[barStatus > 3 ? 'active' : 'inactive']"  class="single-circle"></div>
+    <div :class="[barStatus > 3 ? 'active' : 'inactive']"  class="single-circle">
+      <div v-if="barStatus === 4" class="small-circle"></div>
+      <i v-if="barStatus > 4" class="material-icons center-icon">check</i>
+    </div>
     <div :class="[barStatus > 4 ? 'active-bar' : 'inactive-bar']"  class="single-bar"></div>
-    <div :class="[barStatus > 4 ? 'active' : 'inactive']"  class="single-circle"></div>
+    <div :class="[barStatus > 4 ? 'active' : 'inactive']"  class="single-circle">
+      <div v-if="barStatus === 5" class="small-circle"></div>
+      <i v-if="barStatus > 5" class="material-icons center-icon">check</i>
+    </div>
   </div>
   <div class="container">
     <div class=""><p>Selection</p></div>
@@ -61,6 +76,14 @@ export default {
   border-radius: 50%;
 }
 
+.small-circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: solid white 1px;
+  margin: 1.5px;
+}
+
 .active {
   background-color: #6FCF97;
 }
@@ -100,10 +123,20 @@ export default {
   padding-top: 5%;
 }
 
+.center-icon {
+  margin-top: 25%;
+  color: white;
+}
+
 @media only screen and (max-width: 1100px) {
   .single-circle {
     height: 40px;
     width: 40px;
+  }
+  .small-circle {
+    height: 35px;
+    width: 35px;
+    margin: 1.8px;
   }
   .single-bar {
     width: 90px;
@@ -114,12 +147,15 @@ export default {
   .white-space1 {
     width: 80px;
   }
+
   .white-space2 {
     width: 50px;
   }
+
   .white-space3 {
     width: 40px;
   }
+  
   .white-space4 {
     width: 50px;
   }
@@ -139,17 +175,23 @@ export default {
   .alignTandC {
     text-align: right;
   }
-
   .single-circle {
     height: 25px;
     width: 25px;
+  }
+  .small-circle {
+    height: 20px;
+    width: 20px;
   }
   .single-bar {
     width: 57px;
     margin: 12.5px 2px 0px;
     border-width: 1px;
   }
-
+  .center-icon {
+    margin-top: 1%;
+    margin-left: -5%
+  }
   .white-space1 {
     width: 50px;
   }
@@ -179,6 +221,11 @@ export default {
   .single-circle {
     height: 22px;
     width: 22px;
+  }
+  .small-circle {
+    height: 18px;
+    width: 18px;
+    margin: 1px;
   }
   .single-bar {
     width: 50px;

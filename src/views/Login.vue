@@ -1,31 +1,21 @@
 <template>
-<div id="createAccountTab">
+<div id="loginTab">
   <ProgressBar :barStatus="2"/>
   <div class="container">
     <div class="box-selection">
       <div class="bar-settings">
-        <h1>Create Account</h1>
+        <h1>Login</h1>
       </div>
       <div class="form-container">
         <form class="form-settings">
-          <input class="input-field" type="text" name="firstname" placeholder="First Name"><br>
-          <input class="input-field" type="text" name="lastname" placeholder="Last Name"><br>
           <input class="input-field" type="email" name="email" placeholder="Email"><br>
           <input class="input-field" type="password" name="password1" placeholder="Password"><br>
-          <input class="input-field" type="password" name="password2" placeholder="Confirm Password"><br>
-          <input class="input-field" type="text" name="phone" placeholder="Phone Number"><br>
         </form>
       </div>
       <div class="login-box">
-        <a class="link-settings" href="">Already have an account? Login.</a>
-        <a class="button-settings">Login</a>
+        <router-link class="link-settings" to="/register">Don't have an Account? Register.</router-link>
+        <router-link class="button-settings" to="/terms-and-conditions">Login</router-link>
       </div>
-    </div>
-  </div>
-
-  <div id="footer">
-    <div>
-      <a class="button-settings">Next</a>
     </div>
   </div>
 </div>
@@ -34,9 +24,9 @@
 
 
 <script>
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../components/ProgressBar";
 export default {
-  name: "CreateAccount",
+  name: "Login",
   components: {
     ProgressBar
   },
@@ -48,7 +38,7 @@ export default {
 
 
 <style scoped lang="scss">
-  #createAccountTab {
+  #loginTab {
     height: 100%;
   }
 
@@ -59,39 +49,31 @@ export default {
     padding: 10px 20px;
     border-radius: 4px;
     color:white;
+    text-decoration: none;
   }
 
   #footer {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 5%;
+    justify-content: flex-start;
+    margin-top: 5%;
+    margin-left: 5%;
     height: 10%;
   }
+
+  .testing1 {
+    float: right;
+    margin-right: 50px;
+  }
+
   .container {
     display: flex;
     justify-content: center;
     padding-bottom: 5px;
-    height: 60%;
+    height: 30%;
   }
 
   .form-container {
     margin-top: 20px;
-  }
-
-  .bar-settings {
-    border-bottom: #bdbdbd solid;
-    border-width: 1px;
-    width: 100%;
-    height: 50px;
-  }
-
-  .box-selection {
-    width: 600px;
-    height: 600px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    margin: 2%;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   }
 
   .form-settings {
@@ -108,6 +90,20 @@ export default {
     border: none;
   }
 
+  .bar-settings {
+    width: 100%;
+    height: 50px;
+  }
+
+  .box-selection {
+    width: 600px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin: 2%;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  }
+
   .link-settings {
     color: #3399FF;
     margin-right: 40px;
@@ -115,9 +111,6 @@ export default {
 
   .login-box {
     margin-top: 20px;
-  }
-
-  @media only screen and (max-width: 1300px) {
   }
 
   @media only screen and (max-width: 1100px) {
@@ -132,10 +125,19 @@ export default {
     }
   }
 
+  @media only screen and (max-width: 800px) {
+    #footer {
+      margin-top: 50px;
+    }
+  }
+
   @media only screen and (max-width: 580px) {
+    #footer {
+      margin-right: 3%;
+    }
     .box-selection {
       width: 375px;
-      height: 375px;
+      height: 250px;
     }
     .input-field {
       padding: 8px;
@@ -146,7 +148,7 @@ export default {
   @media only screen and (max-width: 380px) {
     .box-selection {
       width: 290px;
-      height: 320px;
+      height: 215px;
     }
     .input-field {
       padding: 6px;
@@ -157,6 +159,18 @@ export default {
     }
     h1 {
       font-size: 16px;
+    }
+  }
+
+  @media only screen and (max-height: 580px) {
+    #footer {
+      margin-top: 70px;
+    }
+  }
+
+  @media only screen and (max-height: 500px) {
+    #footer {
+      margin-top: 95px;
     }
   }
 </style>

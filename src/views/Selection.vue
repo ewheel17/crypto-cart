@@ -11,7 +11,7 @@
           <p>Price Per Unit:</p>
         </div>
         <div>
-          <p>$3000.00</p>
+          <p>$3000</p>
         </div>
       </div>
       <div class="container2 bar-settings small-unit">
@@ -19,15 +19,15 @@
           <p>Desired Units:</p>
         </div>
         <div>
-          <p class="desired-units">2</p>
+          <input class="desired-units" type="text" name="box-units" v-model="desiredBoxes">
         </div>
       </div>
-      <div class="container2 bar-settings small-unit">
+      <div class="container2 bar-settings bar-none small-unit">
         <div>
           <p>Total:</p>
         </div>
         <div>
-          <p>$6000.00</p>
+          <p>${{ boxTotal }}</p>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <p>Price Per Unit:</p>
         </div>
         <div>
-          <p>$3000.00</p>
+          <p>$1,200,000</p>
         </div>
       </div>
       <div class="container2 bar-settings small-unit">
@@ -48,24 +48,21 @@
           <p>Desired Units:</p>
         </div>
         <div>
-          <p class="desired-units">0</p>
+          <input class="desired-units" type="text" name="boxpro-units" v-model="desiredProBoxes">
         </div>
       </div>
-      <div class="container2 bar-settings small-unit">
+      <div class="container2 bar-settings bar-none small-unit">
         <div>
           <p>Total:</p>
         </div>
         <div>
-          <p>$6000.00</p>
+          <p>${{ boxProTotal }}</p>
         </div>
       </div>
     </div>
   </div>
-
-  <div id="footer">
-    <div>
-      <a class="button-next">Next</a>
-    </div>
+  <div class="currency-container">
+    <router-link class="currency-button" to="/register">Continue</router-link>
   </div>
 </div>
 </template>
@@ -73,13 +70,32 @@
 
 
 <script>
-import ProgressBar from "./ProgressBar.vue";
+import ProgressBar from "../components/ProgressBar";
+import CreateAccount from "./CreateAccount";
 export default {
   name: "Selection",
   components: {
     ProgressBar
   },
-  props: {
+  data: function () {
+    return {
+      desiredBoxes: sessionStorage.getItem("desiredBoxes"),
+      desiredProBoxes: sessionStorage.getItem("desiredProBoxes")
+    }
+  },
+  computed: {
+    boxTotal: function() {
+      this.desiredBoxes = Math.round(this.desiredBoxes);
+      sessionStorage.setItem("desiredBoxes", this.desiredBoxes);
+      let newValue = this.desiredBoxes * 3000;
+      return newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    boxProTotal: function() {
+      this.desiredProBoxes = Math.round(this.desiredProBoxes);
+      sessionStorage.setItem("desiredProBoxes", this.desiredProBoxes);
+      let newValue = this.desiredProBoxes * 1200000;
+      return newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
   }
 }
 </script>
@@ -90,27 +106,12 @@ export default {
   #selectionTab {
     height: 100%;
   }
-
-  #footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 5%;
-    height: 10%;
-
-    .button-next {
-      height: 30px;
-      width: 50px;
-      background: #3399FF;
-      padding: 10px 20px;
-      border-radius: 4px;
-      color:white;
-    }
-  }
+  
   .container {
     display: flex;
     justify-content: center;
     padding-bottom: 5px;
-    height: 60%;
+    height: 40%;
   }
 
   .container2 {
@@ -127,6 +128,7 @@ export default {
     width: 45px;
     background-color: #F2F2F2;
     border-radius: 4px;
+    text-align: center;
   }
 
   .bar-settings {
@@ -134,6 +136,10 @@ export default {
     border-width: 1px;
     width: 100%;
     height: 50px;
+  }
+
+  .bar-none {
+    border: none;
   }
 
   .small-unit {
@@ -151,7 +157,23 @@ export default {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   }
 
+  .currency-container {
+    margin: 170px 0px;
+  }
+
+  .currency-button {
+    height: 30px;
+    width: 100px;
+    background: #3399FF;
+    padding: 15px 200px;
+    border-radius: 4px;
+    color:white;
+    text-decoration: none;
+    margin: 10px;
+  }
+
   @media only screen and (max-width: 1300px) {
+
     .box-selection {
       width: 400px;
       height: 500px;
@@ -173,6 +195,12 @@ export default {
   }
 
   @media only screen and (max-width: 580px) {
+    .currency-container {
+      margin: 30% 0px;
+    }
+    .currency-button {
+      padding: 15px 120px;
+    }
     .box-selection {
       width: 300px;
       height: 375px;
