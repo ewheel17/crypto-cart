@@ -1,14 +1,7 @@
 <template>
   <div id="app">
+    <!-- <Selection></Selection> -->
     <router-view></router-view>
-    <!-- <CreateAccount/> -->
-    <!-- <Login/> -->
-    <!-- <TandC/> -->
-    <!-- <Payment/> -->
-    <!-- <TransactionBTC/> -->
-    <!-- <TransactionUSD/> -->
-    <!-- <PostTransactionUSD/> -->
-    <!-- <junk/> -->
   </div>
 </template>
 

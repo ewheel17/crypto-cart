@@ -76,14 +76,6 @@ export default {
   border-radius: 50%;
 }
 
-.small-circle {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  border: solid white 1px;
-  margin: 1.5px;
-}
-
 .active {
   background-color: #6FCF97;
 }
@@ -133,11 +125,7 @@ export default {
     height: 40px;
     width: 40px;
   }
-  .small-circle {
-    height: 35px;
-    width: 35px;
-    margin: 1.8px;
-  }
+
   .single-bar {
     width: 90px;
     margin: 20px 4px 0px;
@@ -179,10 +167,6 @@ export default {
     height: 25px;
     width: 25px;
   }
-  .small-circle {
-    height: 20px;
-    width: 20px;
-  }
   .single-bar {
     width: 57px;
     margin: 12.5px 2px 0px;
@@ -221,11 +205,6 @@ export default {
   .single-circle {
     height: 22px;
     width: 22px;
-  }
-  .small-circle {
-    height: 18px;
-    width: 18px;
-    margin: 1px;
   }
   .single-bar {
     width: 50px;
