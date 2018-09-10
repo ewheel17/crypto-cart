@@ -2,67 +2,69 @@
 <div id="selectionTab">
   <ProgressBar :barStatus="1"/>
   <div class="container">
-    <div class="box-selection">
-      <div class="bar-settings">
-        <h1>Box</h1>
+    <div class="box-container">
+      <div class="box-selection">
+        <div class="bar-settings">
+          <h1>Box</h1>
+        </div>
+        <div class="container2 bar-settings small-unit">
+          <div>
+            <p>Price Per Unit:</p>
+          </div>
+          <div>
+            <p>$3000</p>
+          </div>
+        </div>
+        <div class="container2 bar-settings small-unit">
+          <div>
+            <p>Desired Units:</p>
+          </div>
+          <div>
+            <input class="desired-units" type="text" name="box-units" v-model="desiredBoxes">
+          </div>
+        </div>
+        <div class="container2 bar-settings bar-none small-unit">
+          <div>
+            <p>Total:</p>
+          </div>
+          <div>
+            <p>${{ boxTotal }}</p>
+          </div>
+        </div>
       </div>
-      <div class="container2 bar-settings small-unit">
-        <div>
-          <p>Price Per Unit:</p>
+      <div class="box-selection">
+        <div class="bar-settings">
+          <h1>Box Pro</h1>
         </div>
-        <div>
-          <p>$3000</p>
+        <div class="container2 bar-settings small-unit">
+          <div>
+            <p>Price Per Unit:</p>
+          </div>
+          <div>
+            <p>$1,200,000</p>
+          </div>
         </div>
-      </div>
-      <div class="container2 bar-settings small-unit">
-        <div>
-          <p>Desired Units:</p>
+        <div class="container2 bar-settings small-unit">
+          <div>
+            <p>Desired Units:</p>
+          </div>
+          <div>
+            <input class="desired-units" type="text" name="boxpro-units" v-model="desiredProBoxes">
+          </div>
         </div>
-        <div>
-          <input class="desired-units" type="text" name="box-units" v-model="desiredBoxes">
-        </div>
-      </div>
-      <div class="container2 bar-settings bar-none small-unit">
-        <div>
-          <p>Total:</p>
-        </div>
-        <div>
-          <p>${{ boxTotal }}</p>
+        <div class="container2 bar-settings bar-none small-unit">
+          <div>
+            <p>Total:</p>
+          </div>
+          <div>
+            <p>${{ boxProTotal }}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="box-selection">
-      <div class="bar-settings">
-        <h1>Box Pro</h1>
-      </div>
-      <div class="container2 bar-settings small-unit">
-        <div>
-          <p>Price Per Unit:</p>
-        </div>
-        <div>
-          <p>$1,200,000</p>
-        </div>
-      </div>
-      <div class="container2 bar-settings small-unit">
-        <div>
-          <p>Desired Units:</p>
-        </div>
-        <div>
-          <input class="desired-units" type="text" name="boxpro-units" v-model="desiredProBoxes">
-        </div>
-      </div>
-      <div class="container2 bar-settings bar-none small-unit">
-        <div>
-          <p>Total:</p>
-        </div>
-        <div>
-          <p>${{ boxProTotal }}</p>
-        </div>
-      </div>
+    <div class="currency-container">
+      <router-link class="currency-button" to="/register">Continue</router-link>
     </div>
-  </div>
-  <div class="currency-container">
-    <router-link class="currency-button" to="/register">Continue</router-link>
   </div>
 </div>
 </template>
@@ -109,67 +111,71 @@ export default {
   
   .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     padding-bottom: 5px;
-    height: 40%;
-  }
 
-  .container2 {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 5px;
-    height: 70%;
-    width: 100%;
-    margin: 0px 10%;
-  }
+    .box-container {
+      display: flex;
+      justify-content: center;
 
-  .desired-units {
-    height: 25px;
-    width: 45px;
-    background-color: #F2F2F2;
-    border-radius: 4px;
-    text-align: center;
-  }
+      .box-selection {
+        width: 500px;
+        height: 600px;
+        background: #FFFFFF;
+        border-radius: 4px;
+        margin: 2%;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 
-  .bar-settings {
-    border-bottom: #bdbdbd solid;
-    border-width: 1px;
-    width: 100%;
-    height: 50px;
-  }
+        .bar-settings {
+          border-bottom: #bdbdbd solid;
+          border-width: 1px;
+          width: 100%;
+          height: 50px;
+        }
 
-  .bar-none {
-    border: none;
-  }
+        .container2 {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 5px;
+          height: 70%;
+          width: 100%;
+          margin: 0px 10%;
 
-  .small-unit {
-    width: 80%;
-    height: 100px;
-    padding-top: 50px;
-  }
+          .desired-units {
+            height: 25px;
+            width: 45px;
+            background-color: #F2F2F2;
+            border-radius: 4px;
+            text-align: center;
+          }
+        }
 
-  .box-selection {
-    width: 500px;
-    height: 600px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    margin: 2%;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-  }
+        .small-unit {
+          width: 80%;
+          height: 100px;
+          padding-top: 50px;
+        }
 
-  .currency-container {
-    margin: 170px 0px;
-  }
+        .bar-none {
+          border: none;
+        }
+      }
+    }
 
-  .currency-button {
-    height: 30px;
-    width: 100px;
-    background: #3399FF;
-    padding: 15px 200px;
-    border-radius: 4px;
-    color:white;
-    text-decoration: none;
-    margin: 10px;
+    .currency-container {
+      margin: 100px 0px;
+
+      .currency-button {
+        height: 30px;
+        width: 100px;
+        background: #3399FF;
+        padding: 15px 200px;
+        border-radius: 4px;
+        color:white;
+        text-decoration: none;
+        margin: 10px;
+      }
+    }
   }
 
   @media only screen and (max-width: 1300px) {
